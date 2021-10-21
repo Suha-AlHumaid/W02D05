@@ -4,22 +4,24 @@
 }
 .container {
     width: 60%;
-    height: 40vh;
-
     display: flex;
     flex-direction: column;
     align-content: space-around;
     background-color: #0000009c;
     color: rgb(68, 68, 68);
+    padding: 20px;
 
 }
 .newItemDiv {
     
     background-color: #fcf9cd;
-    height: 20%;
+    height: 50px;
     width: 100%;
+    display: inline-block;
  
 }
+
+
 .btn{
     width: auto;
     height: 30px;
@@ -34,7 +36,6 @@
 }
 .listDiv {
     background-color: #cdfcfa;
-    height: 40%;
     width: 100%;
 
 }
@@ -43,12 +44,18 @@
 }
 
 .count{
-    height: 20%;
+    height: 50px;
     width: 100%;
     background-color: #ddcdfc;
 }
 .btns{
-    height: 20%;
+    height: 50px;
     width: 100%;
     background-color: #cdfcd3;
+    display: inline-block;
 }
+.myClass{
+    color: brown;
+    word-spacing: 20px;
+    text-decoration: line-through;
+    }

@@ -1,57 +1,81 @@
-const toDos = [
-    {name: "wake up", isComplet: false} ,
-    {name: "coffee", isComplet: false} ,
-    {name: "code", isComplet: false} ];
+let toDos = [
+  { name: "wake up", isComplet: false },
+  { name: "coffee", isComplet: true },
+  { name: "code", isComplet: false },
+];
 
-function addFunc () {
-const name =$("#newItemFeild").val();
+function addFunc() {
+  const name = $("#newItemFeild").val();
 
-const value ={ name: name ,
-    isComplet:false };
-    console.log(value.name);
-if (name.length && name.trim().length)
-{
-toDos.push(value);
-console.log(value);
-$("ul").html("");
-randerList();}
-}
-$("#addBtn").on("click",addFunc);
-
-function clearFunc() {
-    console.log("clear btn");
-    // toDos.splice(0, toDos.length);
-    toDos.length= 0 ;
-    // toDos = [];
-    console.log(toDos.length);
+  const value = { name: name, isComplet: false };
+  console.log(value.name);
+  if (name.length && name.trim().length) {
+    toDos.push(value);
+    console.log(value);
+    $("ul").html("");
     randerList();
   }
-  $("#clearList").on("click",clearFunc);
- 
-//   function editFunc(index) {
-//     const element = prompt("Please enter updated list", "");
-//     toDos.splice(index, 1, element);
-//     randerList();
-//   }
+}
+$("#addBtn").on("click", addFunc);
 
-//   $("#li1").on("click",() => editFunc(index));
+function clearFunc() {
+  console.log("clear btn");
+  // toDos.splice(0, toDos.length);
+  toDos.length = 0;
+  // toDos = [];
+  console.log(toDos.length);
+  randerList();
+}
+$("#clearList").on("click", clearFunc);
+const count = 0;
 
-  const randerList = () => {
-    $("ul").html("");
-    toDos.forEach ((elem,index) => {
-       $("ul").append(`<li>${elem.name}</li>`);
-});
-};
-    // const notCometedtask =toDos.filter (function(elem){
-    //     return elem.isComplet ===false;
-    // });
 
-    // $("listHolder").append(`<li>${toDos.name}</li>`);
 
-    //   deleteBtn.addEventListener("click", () => delFunc(index));
-    //   $("#newItemFeild").on("click", () => editFunc(index));
 
-  
+function editFunc(index) {
+  //   console.log("edit me");
+
+  toDos.forEach((elem,i) =>{
+if(index === i)
+{
+elem.isComplet = !elem.isComplet;
+}
+  });
+
+  // toDos = toDos.map((list,i) => { 
+  //     return {...list, isComplet:!list.isComplet};
+  // });
+  // $(`#${index}`).append();
+  randerList()
+}
+
+  // console.log("edit me");
+  // console.log(index);
+  // // const element = prompt("Please enter updated list", "");
+  // toDos.splice(index, 1, `hhhh`);
+  // randerList();
+
+  const notCometedtask = () => {
+ toDos.forEach((elem,index)=> {
+  if (elem.isComplet===true){
+    toDos.splice(index,1);
+  }
+ });
     randerList();
+  };
 
+const randerList = () => {
+  $("ul").html("");
+  toDos.forEach((elem, index) => {
+    $("ul").append(`<li id=${index} class="myClass">${elem.name}</li>`);
+    $(`#${index}`).on("click", () => editFunc(index));
 
+if (elem.isComplet===false){
+  $(`#${index}`).removeClass("myClass");
+}
+  });
+  
+};
+
+$("#clearCompltedList").on("click", notCometedtask);
+randerList();
