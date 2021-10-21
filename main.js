@@ -11,7 +11,6 @@ const value ={ name: name ,
     console.log(value.name);
 if (name.length && name.trim().length)
 {
-
 toDos.push(value);
 console.log(value);
 $("ul").html("");
@@ -19,11 +18,15 @@ randerList();}
 }
 $("#addBtn").on("click",addFunc);
 
-// function clearFunc() {
-//     toDos.splice(0, toDos.length);
-//     randerList();
-//   }
-//   $("#clearList").on("click",clearFunc);
+function clearFunc() {
+    console.log("clear btn");
+    // toDos.splice(0, toDos.length);
+    toDos.length= 0 ;
+    // toDos = [];
+    console.log(toDos.length);
+    randerList();
+  }
+  $("#clearList").on("click",clearFunc);
  
 //   function editFunc(index) {
 //     const element = prompt("Please enter updated list", "");
@@ -34,8 +37,7 @@ $("#addBtn").on("click",addFunc);
 //   $("#li1").on("click",() => editFunc(index));
 
   const randerList = () => {
-
-    console.log($("ul"));
+    $("ul").html("");
     toDos.forEach ((elem,index) => {
        $("ul").append(`<li>${elem.name}</li>`);
 });
