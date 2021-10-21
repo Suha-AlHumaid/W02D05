@@ -1,6 +1,7 @@
 *{
     box-sizing: border-box;
     margin: 0 auto;
+    font-size: 1rem;
 }
 .container {
     width: 60%;
@@ -10,11 +11,26 @@
     background-color: #0000009c;
     color: rgb(68, 68, 68);
     padding: 20px;
+    color: white;
 
+}
+ul{
+    display: inline-block;
+}
+li{
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    align-items: center;
+}
+span{
+    font-size: 1.5rem;
+    color: rgb(226, 189, 189);
 }
 .newItemDiv {
     
-    background-color: #fcf9cd;
+  
     height: 50px;
     width: 100%;
     display: inline-block;
@@ -22,20 +38,22 @@
 }
 
 
-.btn{
+.btn {
     width: auto;
     height: 30px;
     padding: 5px;
+    border: none;
+    border-radius: 2px;
+    
 }
 #newItemFeild {
     width: 200px;
     height: 30px;
     margin-left: 20px;
 }
-.addBtn{
-}
+
 .listDiv {
-    background-color: #cdfcfa;
+  
     width: 100%;
 
 }
@@ -46,16 +64,17 @@
 .count{
     height: 50px;
     width: 100%;
-    background-color: #ddcdfc;
+   
 }
 .btns{
     height: 50px;
     width: 100%;
-    background-color: #cdfcd3;
+
     display: inline-block;
 }
 .myClass{
-    color: brown;
+    
     word-spacing: 20px;
-    text-decoration: line-through;
+    text-decoration: rgb(156, 80, 80) solid line-through;
+    text-decoration-thickness: 3px;
     }
