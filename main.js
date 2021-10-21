@@ -27,7 +27,6 @@ function clearFunc() {
   randerList();
 }
 $("#clearList").on("click", clearFunc);
-const count = 0;
 
 
 
@@ -40,6 +39,7 @@ if(index === i)
 {
 elem.isComplet = !elem.isComplet;
 }
+
   });
 
   // toDos = toDos.map((list,i) => { 
@@ -63,6 +63,9 @@ elem.isComplet = !elem.isComplet;
  });
     randerList();
   };
+  const count = () => {
+
+$("#count").html(` ${toDos.length} `); };
 
 const randerList = () => {
   $("ul").html("");
@@ -70,12 +73,14 @@ const randerList = () => {
     $("ul").append(`<li id=${index} class="myClass">${elem.name}</li>`);
     $(`#${index}`).on("click", () => editFunc(index));
 
+
 if (elem.isComplet===false){
   $(`#${index}`).removeClass("myClass");
 }
   });
-  
+  count();
 };
 
 $("#clearCompltedList").on("click", notCometedtask);
 randerList();
+
