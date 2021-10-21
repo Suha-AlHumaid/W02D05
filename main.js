@@ -57,11 +57,13 @@ elem.isComplet = !elem.isComplet;
 
   const notCometedtask = () => {
   
- toDos.forEach((elem,index)=> {
-  if (elem.isComplet===true){
-    toDos.splice(index,1);
-  }
- });
+    const result = toDos.filter(elem=> elem.isComplet===false);
+    toDos=result;
+//  toDos.forEach((elem,index)=> {
+//   if (elem.isComplet===true){
+//     toDos.splice(index,1);
+//   }
+//  });
     randerList();
   };
   const count = () => {
