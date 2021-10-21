@@ -76,7 +76,7 @@ $("#count").html(` ${count} `);
 const randerList = () => {
   $("ul").html("");
   toDos.forEach((elem, index) => {
-    $("ul").append(`<li id=${index} "><p class="myClass">${elem.name}</p><button class="btnli">Edit</button> <button class="btnli">Delete</button></li>`);
+    $("ul").append(` <li id=${index} class="myClass">${elem.name}</li><div><button class="btnli" id="update">Update</button><button class="btnli" id="delet">Delete</button></div>`);
     $(`#${index}`).on("click", () => editFunc(index));
 
 
