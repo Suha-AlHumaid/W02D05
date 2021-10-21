@@ -72,20 +72,30 @@ const result = toDos.filter(elem=> elem.isComplet===true);
 count = result.length;
 $("#count").html(` ${count} `); 
 };
+const delete1 =(index)=>{
 
+    console.log("delete");
+    toDos.splice(index,1);
+    randerList();
+}
 const randerList = () => {
   $("ul").html("");
   toDos.forEach((elem, index) => {
-    $("ul").append(` <li id=${index} class="myClass">${elem.name}</li><div><button class="btnli" id="update">Update</button><button class="btnli" id="delet">Delete</button></div>`);
+    $("ul").append(` <li id=${index} class="myClass">${elem.name}</li><div><button class="btnli" id="update">Update</button><button class="btnli" id="del${index}")>Delete</button></div>`);
     $(`#${index}`).on("click", () => editFunc(index));
 
 
 if (elem.isComplet===false){
   $(`#${index}`).removeClass("myClass");
 }
+
+$(`#del${index}`).on("click", ()=>delete1(index));
+
+
   });
   count();
 };
+
 
 $("#clearCompltedList").on("click", notCometedtask);
 randerList();
