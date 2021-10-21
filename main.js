@@ -56,6 +56,7 @@ elem.isComplet = !elem.isComplet;
   // randerList();
 
   const notCometedtask = () => {
+  
  toDos.forEach((elem,index)=> {
   if (elem.isComplet===true){
     toDos.splice(index,1);
@@ -64,8 +65,11 @@ elem.isComplet = !elem.isComplet;
     randerList();
   };
   const count = () => {
-
-$("#count").html(` ${toDos.length} `); };
+let count = 0;
+const result = toDos.filter(elem=> elem.isComplet===true);
+count = result.length;
+$("#count").html(` ${count} `); 
+};
 
 const randerList = () => {
   $("ul").html("");
