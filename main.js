@@ -28,75 +28,66 @@ function clearFunc() {
 }
 $("#clearList").on("click", clearFunc);
 
-
-
-
 function editFunc(index) {
   //   console.log("edit me");
 
-  toDos.forEach((elem,i) =>{
-if(index === i)
-{
-elem.isComplet = !elem.isComplet;
-}
-
+  toDos.forEach((elem, i) => {
+    if (index === i) {
+      elem.isComplet = !elem.isComplet;
+    }
   });
 
-  // toDos = toDos.map((list,i) => { 
-  //     return {...list, isComplet:!list.isComplet};
-  // });
-  // $(`#${index}`).append();
-  randerList()
+  randerList();
 }
 
-  // console.log("edit me");
-  // console.log(index);
-  // // const element = prompt("Please enter updated list", "");
-  // toDos.splice(index, 1, `hhhh`);
-  // randerList();
-
-  const notCometedtask = () => {
-  
-    const result = toDos.filter(elem=> elem.isComplet===false);
-    toDos=result;
-//  toDos.forEach((elem,index)=> {
-//   if (elem.isComplet===true){
-//     toDos.splice(index,1);
-//   }
-//  });
-    randerList();
-  };
-  const count = () => {
-let count = 0;
-const result = toDos.filter(elem=> elem.isComplet===true);
-count = result.length;
-$("#count").html(` ${count} `); 
+const notCometedtask = () => {
+  const result = toDos.filter((elem) => elem.isComplet === false);
+  toDos = result;
+  randerList();
 };
-const delete1 =(index)=>{
+const count = () => {
+  let count = 0;
+  const result = toDos.filter((elem) => elem.isComplet === true);
+  count = result.length;
+  $("#count").html(` ${count} `);
+};
+const delete1 = (index) => {
+  // console.log("delete");
+  toDos.splice(index, 1);
+  randerList();
+};
+const update1 = (index) => {
+  // console.log("upadte");
+  // console.log( $(`#${index}`));
+  $(`#${index}`).html(` <li><input type="text" name="input" id="input${index}" placeholder="type your new list..."></li>`);
 
-    console.log("delete");
-    toDos.splice(index,1);
-    randerList();
-}
+  const name = $(`#input${index}`).val();
+  const value = { name: name, isComplet: false };
+  console.log("new vlue", name);
+  if (name.length && name.trim().length) {
+    toDos.splice(index, 1, value);
+    console.log(value);
+  }
+  randerList();
+};
+
 const randerList = () => {
   $("ul").html("");
   toDos.forEach((elem, index) => {
-    $("ul").append(` <li id=${index} class="myClass">${elem.name}</li><div><button class="btnli" id="update">Update</button><button class="btnli" id="del${index}")>Delete</button></div>`);
+    $("ul").append(
+      ` <li id=${index} class="myClass">${elem.name}</li><div><button class="btnli" id="upd${index}">Update</button><button class="btnli" id="del${index}")>Delete</button></div>`
+    );
     $(`#${index}`).on("click", () => editFunc(index));
 
+    if (elem.isComplet === false) {
+      $(`#${index}`).removeClass("myClass");
+    }
 
-if (elem.isComplet===false){
-  $(`#${index}`).removeClass("myClass");
-}
-
-$(`#del${index}`).on("click", ()=>delete1(index));
-
-
+    $(`#del${index}`).on("click", () => delete1(index));
+    $(`#upd${index}`).on("click", () => update1(index));
   });
   count();
 };
 
-
 $("#clearCompltedList").on("click", notCometedtask);
 randerList();
-
