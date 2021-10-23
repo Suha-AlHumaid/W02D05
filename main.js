@@ -1,4 +1,4 @@
-const toDos= [];
+let toDos= [];
 // localStorage.setItem("toDosJSON",JSON.stringify(toDos));
 // const toDosc = localStorage.getItem(JSON.parse());
 // console.log(toDosc);
@@ -30,21 +30,24 @@ $("#clearList").on("click", clearFunc);
 
 function editFunc(index) {
   //   console.log("edit me");
-
-  toDos.forEach((elem, i) => {
-    if (index === i) {
-      elem.isComplet = !elem.isComplet;
-    }
-  });
-
+toDos[index].isComplet = !toDos[index].isComplet;
+  // toDos.forEach((elem, i) => {
+  //   if (index === i) {
+  //     elem.isComplet = !elem.isComplet;
+  //   }
+  // });
+  console.log(toDos[index].isComplet);
   randerList();
 }
 
 const notCometedtask = () => {
   const result = toDos.filter((elem) => elem.isComplet === false);
+  console.log(result);
   toDos = result;
   randerList();
 };
+
+$("#clearCompltedList").on("click", notCometedtask);
 const count = () => {
   let count = 0;
   const result = toDos.filter((elem) => elem.isComplet === true);
@@ -90,7 +93,7 @@ const randerList = () => {
       <a href="#del${index}" id="del${index}" class="a"> Delete </a>
       <a href="#upd${index}" id="upd${index}" class="a"> Update</a></li>`
     );
-
+    $(`#p${index}`).on("click", () => editFunc(index));
     if (elem.isComplet === false) {
       $(`#p${index}`).removeClass("myClass");
     }
@@ -100,11 +103,11 @@ const randerList = () => {
     );
     $(`#del${index}`).on("click", () => delete1(index));
     $(`#upd${index}`).on("click", () => update1(elem, index));
-    $(`#p${index}`).on("click", () => editFunc(index));
+   
   });
   count();
 };
 
-$("#clearCompltedList").on("click", notCometedtask);
+
 randerList();
 
