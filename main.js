@@ -56,7 +56,9 @@ const delete1 = (index) => {
 const changeList = (index) => {
   console.log(index);
   value=$(`#inputUpdate`).val();
-  toDos[index].name = value;
+  if (value.length && value.trim().length) {
+  toDos[index].name = value; }
+  
 randerList();
 
 };
