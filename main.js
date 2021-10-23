@@ -57,12 +57,9 @@ const delete1 = (index) => {
   randerList();
 };
 const changeList = (index) => {
-  console.log(index);
   value = $(`#inputUpdate`).val();
-  if (value.length && value.trim().length) {
     toDos[index].name = value;
-  }
-  randerList();
+    randerList()
 };
 
 const update1 = (elem, index) => {
