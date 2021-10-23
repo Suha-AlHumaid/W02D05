@@ -59,7 +59,7 @@ const delete1 = (index) => {
 const changeList = (index) => {
   console.log(index);
   value=$(`#inputUpdate`).val();
-  toDos[index] = {name: value, isComplet:false};
+  toDos[index].name = value;
 randerList();
 
 };
