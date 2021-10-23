@@ -3,19 +3,26 @@
     margin: 0 auto;
     font-size: 20px;
 }
+.box {
+    background-color: white;
+}
 .container {
     width: 60%;
     display: flex;
     flex-direction: column;
     align-content: space-around;
-    background-color: #0000009c;
+    background-color: #000000;
     color: rgb(68, 68, 68);
-    padding: 20px;
+    padding: 2px;
     color: white;
+    margin: 10px auto;
+    border-radius: 10px;
 
 }
 ul{
-    display: inline-block;
+    background: white;
+    margin: 0;
+    padding: 0;
 }
 li{
     font-size: 1.5rem;
@@ -23,10 +30,6 @@ li{
     justify-content: flex-start;
     width: 100%;
     align-items: center;
-}
-span{
-    font-size: 1.5rem;
-    color: rgb(226, 189, 189);
 }
 .newItemDiv {
     

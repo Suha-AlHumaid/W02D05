@@ -1,7 +1,4 @@
 let toDos = [
-  { name: "wake up", isComplet: false },
-  { name: "coffee", isComplet: true },
-  { name: "code", isComplet: false },
 ];
 
 function addFunc() {
