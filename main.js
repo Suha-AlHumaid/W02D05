@@ -73,17 +73,22 @@ const inList = (index) => {
   
   $(`#upd${index}`).removeClass("a");
   $(`#del${index}`).removeClass("a");
+
+ 
   
 };
 const outList = (index) => {
-  randerList();
+
+  $(`#upd${index}`).addClass("a");
+  $(`#del${index}`).addClass("a");
+  // randerList();
 };
 const randerList = () => {
   $("ul").html("");
   toDos.forEach((elem, index) => {
     $("ul").append(
-      `<li id=${index} class="myClass list-group-item">
-      <p id="p${index}">${elem.name}</p>
+      `<li id=${index} class="list-group-item">
+      <p class="myClass id="p${index}">${elem.name}</p>
       <a href="#del${index}" id="del${index}" class="a"> Delete </a>
       <a href="#upd${index}" id="upd${index}" class="a"> Update</a></li>`
     );
@@ -98,7 +103,7 @@ const randerList = () => {
       () => outList(index)
     );
     $(`#del${index}`).on("click", () => delete1(index));
-    $(`#upd${index}`).on("click", () => update1(elem, index));
+    $(`#upd${index}`).on("click", () => update1(elem,index));
   });
   count();
 };
