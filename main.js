@@ -56,35 +56,35 @@ const delete1 = (index) => {
   toDos.splice(index, 1);
   randerList();
 };
-const update1 = (index) => {
-  // console.log("upadte");
-  // console.log( $(`#${index}`));
-  $(`#${index}`).html(` <li><input type="text" name="input" id="input${index}" placeholder="type your new list..."></li>`);
+const changeList = (index) => {
+  console.log(index);
+  value=$(`#inputUpdate`).val();
+  toDos[index] = {name: value, isComplet:false};
+randerList();
 
-  const name = $(`#input${index}`).val();
-  const value = { name: name, isComplet: false };
-  console.log("new vlue", name);
-  if (name.length && name.trim().length) {
-    toDos.splice(index, 1, value);
-    console.log(value);
-  }
-  randerList();
 };
+
+  const  update1 =(elem,index)=>{
+    $(`#${index}`).html("");
+    $(`#${index}`).append('<li><input type="text" name="inputUpdate" id="inputUpdate"></li>');
+    $(`#${index}`).on("change",()=> changeList(index));
+  };
+
 
 const randerList = () => {
   $("ul").html("");
   toDos.forEach((elem, index) => {
     $("ul").append(
-      ` <li id=${index} class="myClass">${elem.name}</li><div><button class="btnli" id="upd${index}">Update</button><button class="btnli" id="del${index}")>Delete</button></div>`
+      ` <li id=${index} class="myClass"><p id="p${index}">${elem.name}</p><div><button class="btnli" id="upd${index}">Update</button><button class="btnli" id="del${index}")>Delete</button></div></li>`
     );
-    $(`#${index}`).on("click", () => editFunc(index));
+    $(`#p${index}`).on("click", () => editFunc(index));
 
     if (elem.isComplet === false) {
       $(`#${index}`).removeClass("myClass");
     }
 
     $(`#del${index}`).on("click", () => delete1(index));
-    $(`#upd${index}`).on("click", () => update1(index));
+    $(`#upd${index}`).on("click", () => update1(elem,index));
   });
   count();
 };
