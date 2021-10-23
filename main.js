@@ -1,4 +1,8 @@
-let toDos = [];
+const toDos= [];
+// localStorage.setItem("toDosJSON",JSON.stringify(toDos));
+// const toDosc = localStorage.getItem(JSON.parse());
+// console.log(toDosc);
+
 
 function addFunc() {
   const name = $("#newItemFeild").val();
@@ -58,31 +62,28 @@ const changeList = (index) => {
   if (value.length && value.trim().length) {
     toDos[index].name = value;
   }
-
   randerList();
 };
 
-const update1 =(elem,index) => {
+const update1 = (elem, index) => {
+
   $(`#${index}`).html("");
   $(`#${index}`).append(
-    '<li><input type="text" name="inputUpdate" id="inputUpdate"></li>'
+    `<li><input type="text" name="inputUpdate" id="inputUpdate" value="${elem.name}"></li>`
   );
   $(`#${index}`).on("change", () => changeList(index));
 };
 const inList = (index) => {
-  
   $(`#upd${index}`).removeClass("a");
   $(`#del${index}`).removeClass("a");
-
- 
-  
 };
 const outList = (index) => {
-
   $(`#upd${index}`).addClass("a");
   $(`#del${index}`).addClass("a");
   // randerList();
 };
+
+/////////////////
 const randerList = () => {
   $("ul").html("");
   toDos.forEach((elem, index) => {
@@ -92,8 +93,6 @@ const randerList = () => {
       <a href="#del${index}" id="del${index}" class="a"> Delete </a>
       <a href="#upd${index}" id="upd${index}" class="a"> Update</a></li>`
     );
-    // <div><button class="btnli" id="upd${index}">Update</button><button class="btnli" id="del${index}")>Delete</button></div>
-  
 
     if (elem.isComplet === false) {
       $(`#p${index}`).removeClass("myClass");
@@ -103,7 +102,7 @@ const randerList = () => {
       () => outList(index)
     );
     $(`#del${index}`).on("click", () => delete1(index));
-    $(`#upd${index}`).on("click", () => update1(elem,index));
+    $(`#upd${index}`).on("click", () => update1(elem, index));
     $(`#p${index}`).on("click", () => editFunc(index));
   });
   count();
@@ -111,3 +110,4 @@ const randerList = () => {
 
 $("#clearCompltedList").on("click", notCometedtask);
 randerList();
+

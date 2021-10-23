@@ -3,9 +3,16 @@
   margin: 0 auto;
   font-size: 20px;
 }
-
+.box{
+    max-width: 30em;
+    margin: 10px auto;
+    border-radius: 10px;
+    padding: 2px;
+    background: white;
+    box-shadow: 0 0 5px rgb(0 0 0 / 50%);
+}
 .container {
-  width: 60%;
+
   display: flex;
   flex-direction: column;
   align-content: space-around;
@@ -15,6 +22,7 @@
   color: white;
   margin: 10px auto;
   border-radius: 10px;
+  
 }
 ul {
     /* display: inline-block; */
@@ -47,7 +55,7 @@ li {
   border-radius: 2px; */
 }
 #newItemFeild {
-  width: 200px;
+  width: 50%;
   /* height: 30px; */
   margin-left: 20px;
 }
