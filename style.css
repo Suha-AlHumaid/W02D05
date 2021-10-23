@@ -1,91 +1,78 @@
-*{
-    box-sizing: border-box;
-    margin: 0 auto;
-    font-size: 20px;
+* {
+  box-sizing: border-box;
+  margin: 0 auto;
+  font-size: 20px;
 }
-.box {
-    background-color: white;
-}
-.container {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    align-content: space-around;
-    background-color: #000000;
-    color: rgb(68, 68, 68);
-    padding: 2px;
-    color: white;
-    margin: 10px auto;
-    border-radius: 10px;
 
+.container {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  background-color: #000000;
+  color: rgb(68, 68, 68);
+  padding: 2px;
+  color: white;
+  margin: 10px auto;
+  border-radius: 10px;
 }
-ul{
-    background: white;
-    list-style: none;
-    color: black;
-    margin: 0;
-    padding: 0;
+ul {
+  background: white;
+  list-style: none;
+  color: black;
+  margin: 0;
+  padding: 0;
 }
-li{
-    font-size: 1.5rem;
-    padding: 10px;
+li {
+  font-size: 1.5rem;
+  padding: 10px;
 }
 .newItemDiv {
-    
-  
-    height: 50px;
-    width: 100%;
-    display: inline-block;
- 
+  height: 50px;
+  width: 100%;
+  display: inline-block;
 }
 
 .red {
-    color: brown;
+  color: brown;
 }
 .btn {
-    width: auto;
-    height: 30px;
-    padding: 5px;
-    border: none;
-    border-radius: 2px;
-    
+  width: auto;
+  height: 30px;
+  padding: 5px;
+  border: none;
+  border-radius: 2px;
 }
 #newItemFeild {
-    width: 200px;
-    height: 30px;
-    margin-left: 20px;
+  width: 200px;
+  height: 30px;
+  margin-left: 20px;
 }
 
 .listDiv {
-  
-    width: 100%;
-
-}
-.listHolder {
-
+  width: 100%;
 }
 
-.count{
-    height: 50px;
-    width: 100%;
-   
+.count {
+  height: 50px;
+  width: 100%;
 }
-.btns{
-    height: 50px;
-    width: 100%;
+.btns {
+  height: 50px;
+  width: 100%;
 
-    display: inline-block;
+  display: inline-block;
 }
-.myClass{
-    
-    word-spacing: 20px;
-    text-decoration: rgb(156, 80, 80) solid line-through;
-    text-decoration-thickness: 3px;
-    }
-    
-    .hideBtn{
-        visibility:visible;
-    }
-    .show {
-          visibility:hidden;
-    }
+.myClass {
+  word-spacing: 20px;
+  text-decoration: rgb(156, 80, 80) solid line-through;
+  text-decoration-thickness: 3px;
+}
+.a {
+  visibility: hidden;
+  cursor: pointer;
+  /* margin-left: 1em; */
+  font-size: 0.5em;
+  text-transform: uppercase;
+  color: navy;
+}

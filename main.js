@@ -1,5 +1,4 @@
-let toDos = [
-];
+let toDos = [];
 
 function addFunc() {
   const name = $("#newItemFeild").val();
@@ -55,35 +54,48 @@ const delete1 = (index) => {
 };
 const changeList = (index) => {
   console.log(index);
-  value=$(`#inputUpdate`).val();
+  value = $(`#inputUpdate`).val();
   if (value.length && value.trim().length) {
-  toDos[index].name = value; }
-  
-randerList();
+    toDos[index].name = value;
+  }
 
+  randerList();
 };
 
-  const  update1 =(elem,index)=>{
-    $(`#${index}`).html("");
-    $(`#${index}`).append('<li><input type="text" name="inputUpdate" id="inputUpdate"></li>');
-    $(`#${index}`).on("change",()=> changeList(index));
-  };
-
-
+const update1 = (elem, index) => {
+  $(`#${index}`).html("");
+  $(`#${index}`).append(
+    '<li><input type="text" name="inputUpdate" id="inputUpdate"></li>'
+  );
+  $(`#${index}`).on("change", () => changeList(index));
+};
+const inList = (index) => {
+  // $(`#upd${index}`).css({"background-color": "yellow", "font-size": "200%"});
+  $(`#upd${index}`).removeClass("a");
+  $(`#del${index}`).removeClass("a");
+  // $(`#upd${index}`).removeClass("a");
+};
+const outList = (index) => {
+  randerList();
+};
 const randerList = () => {
   $("ul").html("");
   toDos.forEach((elem, index) => {
     $("ul").append(
-      ` <li id=${index} class="myClass"><p id="p${index}">${elem.name}</p><div><button class="btnli" id="upd${index}">Update</button><button class="btnli" id="del${index}")>Delete</button></div></li>`
+      ` <li id=${index} class="myClass"><p id="p${index}">${elem.name}</p><a href="#del${index}" id="del${index}" class="a"> del</a><a href="#upd${index}" id="upd${index}" class="a">update</a></li>`
     );
+    // <div><button class="btnli" id="upd${index}">Update</button><button class="btnli" id="del${index}")>Delete</button></div>
     $(`#p${index}`).on("click", () => editFunc(index));
 
     if (elem.isComplet === false) {
       $(`#${index}`).removeClass("myClass");
     }
-
+    $(`#${index}`).hover(
+      () => inList(index),
+      () => outList(index)
+    );
     $(`#del${index}`).on("click", () => delete1(index));
-    $(`#upd${index}`).on("click", () => update1(elem,index));
+    $(`#upd${index}`).on("click", () => update1(elem, index));
   });
   count();
 };
