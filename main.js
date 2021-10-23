@@ -62,7 +62,7 @@ const changeList = (index) => {
   randerList();
 };
 
-const update1 = (elem, index) => {
+const update1 =(elem,index) => {
   $(`#${index}`).html("");
   $(`#${index}`).append(
     '<li><input type="text" name="inputUpdate" id="inputUpdate"></li>'
@@ -88,15 +88,15 @@ const randerList = () => {
   toDos.forEach((elem, index) => {
     $("ul").append(
       `<li id=${index} class="list-group-item">
-      <p class="myClass id="p${index}">${elem.name}</p>
+      <p class="myClass" id="p${index}">${elem.name}</p>
       <a href="#del${index}" id="del${index}" class="a"> Delete </a>
       <a href="#upd${index}" id="upd${index}" class="a"> Update</a></li>`
     );
     // <div><button class="btnli" id="upd${index}">Update</button><button class="btnli" id="del${index}")>Delete</button></div>
-    $(`#p${index}`).on("click", () => editFunc(index));
+  
 
     if (elem.isComplet === false) {
-      $(`#${index}`).removeClass("myClass");
+      $(`#p${index}`).removeClass("myClass");
     }
     $(`#${index}`).hover(
       () => inList(index),
@@ -104,6 +104,7 @@ const randerList = () => {
     );
     $(`#del${index}`).on("click", () => delete1(index));
     $(`#upd${index}`).on("click", () => update1(elem,index));
+    $(`#p${index}`).on("click", () => editFunc(index));
   });
   count();
 };
