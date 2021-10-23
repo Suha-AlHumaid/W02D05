@@ -70,10 +70,10 @@ const update1 = (elem, index) => {
   $(`#${index}`).on("change", () => changeList(index));
 };
 const inList = (index) => {
-  // $(`#upd${index}`).css({"background-color": "yellow", "font-size": "200%"});
+  
   $(`#upd${index}`).removeClass("a");
   $(`#del${index}`).removeClass("a");
-  // $(`#upd${index}`).removeClass("a");
+  
 };
 const outList = (index) => {
   randerList();
@@ -82,7 +82,10 @@ const randerList = () => {
   $("ul").html("");
   toDos.forEach((elem, index) => {
     $("ul").append(
-      ` <li id=${index} class="myClass"><p id="p${index}">${elem.name}</p><a href="#del${index}" id="del${index}" class="a"> del</a><a href="#upd${index}" id="upd${index}" class="a">update</a></li>`
+      `<li id=${index} class="myClass list-group-item">
+      <p id="p${index}">${elem.name}</p>
+      <a href="#del${index}" id="del${index}" class="a"> Delete </a>
+      <a href="#upd${index}" id="upd${index}" class="a"> Update</a></li>`
     );
     // <div><button class="btnli" id="upd${index}">Update</button><button class="btnli" id="del${index}")>Delete</button></div>
     $(`#p${index}`).on("click", () => editFunc(index));

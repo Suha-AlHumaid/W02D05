@@ -17,6 +17,7 @@
   border-radius: 10px;
 }
 ul {
+    /* display: inline-block; */
   background: white;
   list-style: none;
   color: black;
@@ -26,6 +27,7 @@ ul {
 li {
   font-size: 1.5rem;
   padding: 10px;
+  cursor: pointer;
 }
 .newItemDiv {
   height: 50px;
@@ -37,15 +39,16 @@ li {
   color: brown;
 }
 .btn {
-  width: auto;
+    color: black;
+  /* width: auto;
   height: 30px;
   padding: 5px;
   border: none;
-  border-radius: 2px;
+  border-radius: 2px; */
 }
 #newItemFeild {
   width: 200px;
-  height: 30px;
+  /* height: 30px; */
   margin-left: 20px;
 }
 
@@ -60,19 +63,20 @@ li {
 .btns {
   height: 50px;
   width: 100%;
-
   display: inline-block;
+  margin-left: 1em;
 }
 .myClass {
-  word-spacing: 20px;
-  text-decoration: rgb(156, 80, 80) solid line-through;
-  text-decoration-thickness: 3px;
+  color: #CCC;
+  text-decoration: line-through;
+
 }
 .a {
   visibility: hidden;
   cursor: pointer;
-  /* margin-left: 1em; */
+  margin-left: 1em;
   font-size: 0.5em;
   text-transform: uppercase;
   color: navy;
+
 }
